@@ -53,7 +53,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<User> findAll() {
 		// TODO Auto-generated method stub
-		String findAllSql = "SELECT u FROM Users u";
+		String findAllSql = "SELECT u FROM User u";
 		TypedQuery<User> tq = em.createQuery(findAllSql, User.class);
 		List<User> list = tq.getResultList();
 		return list;
