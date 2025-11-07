@@ -19,7 +19,7 @@ public class test {
 //		System.out.println(userDao.findAll().get(0).toString());
 //		System.out.println(userDao.findAllByEmailAndRole("@fpt.edu.vn", false).get(0).toString());
 //		System.out.println(userDao.findById("lamdayne").getEmail());
-		for (User u : userDao.findByPageSize(1, 5)) {
+		for (User u : userDao.findByPageSize(4, 4)) {
 			System.out.println(u);
 		}
 	}

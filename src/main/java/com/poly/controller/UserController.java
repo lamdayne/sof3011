@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet({ "/user/index" })
+@WebServlet({ "/user/index", "/user/showUser" })
 public class UserController extends HttpServlet {
 	UserDAO userDao = new UserDAOImpl();
 
@@ -21,7 +21,12 @@ public class UserController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		List<User> list = userDao.findAll();
-		req.setAttribute("items", list);
-		req.getRequestDispatcher("/views/list-user.jsp").forward(req, resp);
+		String path = req.getServletPath();
+		if (path.contains("/user/index")) {
+			req.getRequestDispatcher("/views/user.jsp").forward(req, resp);
+		} else if (path.contains("/user/showUser")) {
+			req.setAttribute("items", list);
+			req.getRequestDispatcher("/views/list-user.jsp").forward(req, resp);
+		}
 	}
 }

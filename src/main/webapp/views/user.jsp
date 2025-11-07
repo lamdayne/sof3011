@@ -8,11 +8,6 @@
 <title>List User</title>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath}/user/index">Back</a>
-	<ul>
-		<c:forEach var="item" items="${items}" varStatus="vs">
-			<li>${vs.count} - ${item.fullName}</li>
-		</c:forEach>
-	</ul>
+	<a href="${pageContext.request.contextPath}/user/showUser">Show User</a>
 </body>
 </html>
